@@ -19,11 +19,15 @@ os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY", "AIzaSyCf4zhRvpmANps5
 from langchain_google_genai import ChatGoogleGenerativeAI
 gemini_llm = ChatGoogleGenerativeAI(model=os.getenv("GEMINI_MODEL", "gemini-2.0-flash-exp"))
 
+import os
+os.environ["HF_TOKEN"] = "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"
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
+
 # HuggingFace setup
 from openai import OpenAI
 hf_client = OpenAI(
     base_url="https://router.huggingface.co/v1",
-    api_key=os.environ.get("HF_TOKEN", "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"),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
+    api_key=os.environ.get("HF_TOKEN", "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"),
 )
 
 # ============ THREE-LLM ENSEMBLE SYSTEM ============
